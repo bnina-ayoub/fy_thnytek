@@ -7,7 +7,7 @@ function Header() {
 
   return (
 
-    <div className="sticky top-0 z-50 bg-[#05091a] grid grid-cols-3 shadow-md py-1 px-5 ">
+    <div className="sticky top-0  bg-[#05091a] grid grid-cols-4 shadow-md py-1 px-5 ">
         
         <div className='cursor-pointer left-0 relative flext 
         items-center  my-auto'>
@@ -31,12 +31,12 @@ function Header() {
               About Us
             </Link>
 
-            <Link href="/app/pages/aboutus.tsx" 
+            <Link href={"map"} 
             className="transform text-white transition-colors duration-300 hover:text-[#24AE5F]  " >
               Ride
             </Link>
 
-            <Link href="/app/pages/aboutus.tsx" 
+            <Link href={"faq"}
             className="transform text-white transition-colors duration-300 hover:text-[#24AE5F]  " >
               FAQ
             </Link>
@@ -47,13 +47,32 @@ function Header() {
             </a>
 
         </div>
+        
+        <div className='flex items-center'>
+          <form action="" className=' flex items-center rounded-lg p-4 text-white  border-white/30'>
+              <input type="text" placeholder='Leaving From'
+              className='p-2 bg-[#05091a]/30 outline-none'/>
+              
+              <input type="text" placeholder='Going To'
+              className='p-2 bg-transparent outline-none'/>
 
+              
+            </form>
+            <div>
+              
+              <button href={'map'} className='  bg-[#24AE5F] p-4 text-white '>Search
+              </button>
+
+            </div>
+              
+
+            </div>
         {/*Right*/}
         <div className='flex items-center space-x-4 justify-end'>
-            
+          
           
             <div className='cursor-pointer p-2 rounded-md
-              flex items-center spa!!:!ce-x-2 hover:bg-[#24AE5F]/50'>
+              flex items-center space-x-2 hover:bg-[#24AE5F]/50'>
                 <UserIcon className='h-6 text-white'/>
                 <p className='text-white '>
               Sign In

@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { ClockIcon ,BanknotesIcon, MapPinIcon} from "@heroicons/react/24/outline";
 import Banner from "./components/Banner";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <div className="">
       <Header/>
+
       <Banner/>
 
       <div className="p-5 py-10">
@@ -78,7 +80,7 @@ export default function Home() {
         </div>
 
       </div>
-      
+      <Footer/>
     </div>
   )
 }
