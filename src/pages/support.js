@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from './components/Header';
+import Footer from "./components/Footer";
 
 
 export default function ContactForm() {
@@ -24,13 +25,13 @@ export default function ContactForm() {
   };
 
   return (
-    <div>
+    <div className="">
       <Header/>
       {formSubmitted && (
         <p className="text-green-500">Thank you! Your form has been submitted.</p>
       )}
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-      <h1 className="p-4 text-2xl sm:text-2xl text[#05091a] font-bold ">Would You Like to Express Yourself ?</h1>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto py-10">
+      <h1 className="p-4 text-2xl sm:text-2xl text[#05091a] font-semibold ">Would You Like to Express Yourself ?</h1>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2 font-medium text-gray-700">
             Name
@@ -93,6 +94,7 @@ export default function ContactForm() {
           Submit
         </button>
       </form>
+      <Footer/>
     </div>
   );
 }

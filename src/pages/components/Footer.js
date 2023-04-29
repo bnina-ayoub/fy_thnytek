@@ -12,13 +12,15 @@ function Footer() {
                       src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t1.15752-9/334249645_853648469066576_3681408509611808809_n.png?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=S5x_JMGecd8AX-8xkpe&_nc_ht=scontent.fnbe1-2.fna&oh=03_AdTn1jGJaIu_Kc64YQ2Z3KhoIYlXqDrECOJyQLSw3kGEuA&oe=64725573" class="h-8 mr-3" alt="FlowBite Logo" />
                       
                   </a>
+
+                  
               </div>
               <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                   <div>
                       <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                       <ul class="text-gray-600 dark:text-gray-400 font-medium">
                           <li class="mb-4">
-                              <a href={"Mapp"} class="hover:underline">Ride</a>
+                              <a href={"map"} class="hover:underline">Ride</a>
                           </li>
                           <li>
                               <a href={"aboutus"} class="hover:underline">About Us</a>

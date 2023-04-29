@@ -3,7 +3,12 @@ import { UserIcon } from '@heroicons/react/24/solid'
 import { Router, useRouter } from 'next/router';
 import Link from 'next/link';
 
+import { useState } from 'react';
+
 function Header() {
+    const [showPopup, setShowPopup] = useState(false);
+  
+    
 
   return (
 
@@ -58,10 +63,14 @@ function Header() {
 
               
             </form>
-            <div>
+            <div >
               
-              <button href={'map'} className='  bg-[#24AE5F] p-4 text-white '>Search
-              </button>
+               <Link href={"map"}>
+                <button   className='  bg-[#24AE5F] p-4 text-white '>Search</button>
+                
+               
+               </Link> 
+              
 
             </div>
               
@@ -74,9 +83,11 @@ function Header() {
             <div className='cursor-pointer p-2 rounded-md
               flex items-center space-x-2 hover:bg-[#24AE5F]/50'>
                 <UserIcon className='h-6 text-white'/>
-                <p className='text-white '>
-              Sign In
-            </p>
+                <Link href={"login"}>
+                <button   className=' text-white '>Sign In</button>
+                
+               
+               </Link> 
             
             </div>
             
