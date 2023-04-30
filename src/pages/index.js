@@ -1,25 +1,256 @@
 "use client"
-
-import Image from "next/image";
-import { useRouter } from "next/router";
-
 import { ClockIcon ,BanknotesIcon, MapPinIcon} from "@heroicons/react/24/outline";
 import Banner from "./components/Banner";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Feedback from "./components/Feedback";
+import { Fragment, useState } from 'react'
+import { Combobox, Transition } from '@headlessui/react'
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import Link from "next/link";
+
+
+const people1 = 
+
+    [
+    { id: 1, name: 'Tunis' },
+    { id: 2, name: 'Ariana' },
+    { id: 3, name: 'Ben Arous' },
+    { id: 4, name: 'Mannouba' },
+    { id: 5, name: 'Bizerte' },
+    { id: 6, name: 'Nabeul' },
+    { id: 7, name: 'Béja' },
+    { id: 8, name: 'Jendouba' },
+    { id: 9, name: 'Zaghouan' },
+    { id: 10, name: 'Siliana' },
+    { id: 11, name: 'Le Kef' },
+    { id: 12, name: 'Sousse' },
+    { id: 13, name: 'Monastir' },
+    { id: 14, name: 'Mahdia' },
+    { id: 15, name: 'Kasserine' },
+    { id: 16, name: 'Sidi Bouzid' },
+    { id: 17, name: 'Kairouan' },
+    { id: 18, name: 'Gafsa' },
+    { id: 19, name: 'Sfax' },
+    { id: 20, name: 'Gabès' },
+    { id: 21, name: 'Médenine' },
+    { id: 22, name: 'Tozeur' },
+    { id: 23, name: 'Kebili' },
+    { id: 24, name: 'Tataouine' }
+    ]
+
+    const people2 = 
+
+    [
+    { id: 1, name: 'Tunis' },
+    { id: 2, name: 'Ariana' },
+    { id: 3, name: 'Ben Arous' },
+    { id: 4, name: 'Mannouba' },
+    { id: 5, name: 'Bizerte' },
+    { id: 6, name: 'Nabeul' },
+    { id: 7, name: 'Béja' },
+    { id: 8, name: 'Jendouba' },
+    { id: 9, name: 'Zaghouan' },
+    { id: 10, name: 'Siliana' },
+    { id: 11, name: 'Le Kef' },
+    { id: 12, name: 'Sousse' },
+    { id: 13, name: 'Monastir' },
+    { id: 14, name: 'Mahdia' },
+    { id: 15, name: 'Kasserine' },
+    { id: 16, name: 'Sidi Bouzid' },
+    { id: 17, name: 'Kairouan' },
+    { id: 18, name: 'Gafsa' },
+    { id: 19, name: 'Sfax' },
+    { id: 20, name: 'Gabès' },
+    { id: 21, name: 'Médenine' },
+    { id: 22, name: 'Tozeur' },
+    { id: 23, name: 'Kebili' },
+    { id: 24, name: 'Tataouine' }
+    ]
+
 
 
 
 
 
 export default function Home() {
+  const [selected1, setSelected1] = useState(people1[0])
+  const [selected2, setSelected2] = useState(people2[0])
+  const [query, setQuery] = useState('')
+
+  const filteredPeople1 =
+    query === ''
+      ? people1
+      : people1.filter((person) =>
+          person.name
+            .toLowerCase()
+            .replace(/\s+/g, '')
+            .includes(query.toLowerCase().replace(/\s+/g, ''))
+        )
+
+        const filteredPeople2 =
+    query === ''
+      ? people2
+      : people2.filter((person) =>
+          person.name
+            .toLowerCase()
+            .replace(/\s+/g, '')
+            .includes(query.toLowerCase().replace(/\s+/g, ''))
+        )
+
   return (
     <div className="">
       <Header/>
-
+ 
       <Banner/>
 
+      {/*selector*/}
+
+      <div className="px-3 flex  justify-center items-center
+     selection:text-white selection:bg-gray-500 bg-gray-500/30 p-10 space-x-4">
+
+      <div className="w-72 ">
+      <Combobox value={selected1} onChange={setSelected1}>
+        <div className=" mt-1 ">
+          <div className=" cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+            <Combobox.Input
+              className=" border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0 outline-none "
+              displayValue={(person) => person.name}
+              onChange={(event) => setQuery(event.target.value)}
+            />
+            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+              
+            </Combobox.Button>
+          </div>
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+            afterLeave={() => setQuery('')}
+          >
+            <Combobox.Options className="absolute mt-1 max-h-60  overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              {filteredPeople1.length === 0 && query !== '' ? (
+                <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                  Nothing found.
+                </div>
+              ) : (
+                filteredPeople1.map((person) => (
+                  <Combobox.Option
+                    key={person.id}
+                    className={({ active }) =>
+                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                        active ? 'bg-teal-600 text-white' : 'text-gray-900'
+                      }`
+                    }
+                    value={person}
+                  >
+                    {({ selected1, active }) => (
+                      <>
+                        <span
+                          className={`block truncate ${
+                            selected1 ? 'font-medium' : 'font-normal'
+                          }`}
+                        >
+                          {person.name}
+                        </span>
+                        {selected1 ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active ? 'text-white' : 'text-teal-600'
+                            }`}
+                          >
+                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                          </span>
+                        ) : null}
+                      </>
+                    )}
+                  </Combobox.Option>
+                ))
+              )}
+            </Combobox.Options>
+          </Transition>
+        </div>
+      </Combobox>
+
+      
+    </div>
+
+    <div className="w-72 ">
+      <Combobox value={selected2} onChange={setSelected2}>
+        <div className=" mt-1  ">
+          <div className="  cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+            <Combobox.Input
+              className=" border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0 outline-none "
+              displayValue={(person) => person.name}
+              onChange={(event) => setQuery(event.target.value)}
+            />
+            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+             
+            </Combobox.Button>
+          </div>
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+            afterLeave={() => setQuery('')}
+          >
+            <Combobox.Options className="absolute mt-1 max-h-60 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              {filteredPeople2.length === 0 && query !== '' ? (
+                <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                  Nothing found.
+                </div>
+              ) : (
+                filteredPeople2.map((person) => (
+                  <Combobox.Option
+                    key={person.id}
+                    className={({ active }) =>
+                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                        active ? 'bg-teal-600 text-white' : 'text-gray-900'
+                      }`
+                    }
+                    value={person}
+                  >
+                    {({ selected2, active }) => (
+                      <>
+                        <span
+                          className={`block truncate ${
+                            selected2 ? 'font-medium' : 'font-normal'
+                          }`}
+                        >
+                          {person.name}
+                        </span>
+                        {selected2 ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active ? 'text-white' : 'text-teal-600'
+                            }`}
+                          >
+                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                          </span>
+                        ) : null}
+                      </>
+                    )}
+                  </Combobox.Option>
+                ))
+              )}
+            </Combobox.Options>
+          </Transition>
+        </div>
+      </Combobox>
+
+      
+    </div>
+    <Link href={"map"}>
+      <button   className='  bg-[#24AE5F] p-4 text-white rounded-md border-none py-2 
+       text-sm leading-5 focus:ring-0 outline-none text-center'>Search</button>
+    </Link> 
+    
+      </div>
+
+
+     
       <div className="p-5 py-10">
         <h1 className="font-semibold text-3xl px-7">Join the Movement: Fi Thnitek</h1>
         <img className="w-full h-80 "
