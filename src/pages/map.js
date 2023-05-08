@@ -1,5 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
 import { useState } from "react";
 import Image from 'next/image'
 import { HeartIcon } from "@heroicons/react/outline";
@@ -45,7 +44,6 @@ export default function Mapp() {
     </div>
   )
 }
-=======
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -581,4 +579,3 @@ export default function Mapp() {
         </div>
     )
     }
->>>>>>> origin/main

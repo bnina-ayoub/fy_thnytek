@@ -42,17 +42,14 @@ function Footer() {
                       <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                       <ul class="text-gray-600 dark:text-gray-400 font-medium">
                           <li class="mb-4">
-<<<<<<< HEAD
                               <a href="#" class="hover:underline">Privacy Policy</a>
                           </li>
                           <li>
                               <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-=======
                               <a href={"faq"} class="hover:underline">Privacy Policy</a>
                           </li>
                           <li>
                               <a href={"faq"} class="hover:underline">Terms &amp; Conditions</a>
->>>>>>> origin/main
                           </li>
                       </ul>
                   </div>
@@ -60,11 +57,7 @@ function Footer() {
           </div>
           <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <div class="sm:flex sm:items-center sm:justify-between">
-<<<<<<< HEAD
-              <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-=======
               <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href={"/"} class="hover:underline">Fy Thnytek™</a>. All Rights Reserved.
->>>>>>> origin/main
               </span>
               <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                   <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">

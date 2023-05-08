@@ -1,11 +1,8 @@
 "use client"
-<<<<<<< HEAD
 
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-=======
->>>>>>> origin/main
 import { ClockIcon ,BanknotesIcon, MapPinIcon} from "@heroicons/react/24/outline";
 import Banner from "./components/Banner";
 import Header from "./components/Header";

@@ -1,9 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
-<<<<<<< HEAD
 
 
-=======
 import Footer from './components/Footer';
 import Carding from './components/carding';
 
@@ -34,7 +32,6 @@ const people = [
   },
   
 ]
->>>>>>> origin/main
 
 export default function AboutUs() {
   return (
